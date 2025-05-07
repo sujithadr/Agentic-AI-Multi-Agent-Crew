@@ -1,0 +1,17 @@
+tasks:
+  - name: research_task
+    assigned_agent: research_agent
+    description: "Use SerperDevTool to search for recent and credible information on the topic: {topic}."
+    expected_output: "A list of relevant facts and links from reputable sources."
+
+  - name: summarization_task
+    assigned_agent: summarization_agent
+    depends_on: research_task
+    description: "Summarize the findings from the research into a concise summary."
+    expected_output: "A 3-5 paragraph summary of the topic with the main points highlighted."
+
+  - name: fact_check_task
+    assigned_agent: fact_checker_agent
+    depends_on: summarization_task
+    description: "Review the summary and identify any factual inaccuracies or unsupported claims."
+    expected_output: "A corrected and validated version of the summary with source links."
